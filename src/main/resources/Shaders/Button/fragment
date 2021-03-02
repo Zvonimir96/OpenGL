@@ -1,0 +1,17 @@
+#version 330 core
+out vec4 FragColor;
+
+uniform vec2 position;
+uniform vec2 size;
+uniform float height;
+uniform float width;
+uniform float highLight;
+
+void main()
+{
+	if(gl_FragCoord.x > position.x * width && gl_FragCoord.x < position.x * width + size.x * width &&
+		gl_FragCoord.y < (1-position.y) * height && gl_FragCoord.y > (1-position.y) * height - size.y * height) 
+			FragColor = vec4(0,0,0,0.2+highLight);
+					
+	else FragColor = vec4(0,0,0,0);			
+}  
